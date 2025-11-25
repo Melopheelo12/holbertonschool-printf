@@ -44,16 +44,26 @@ int print_number(int n)
 
 int handle_specifier(char c, va_list args)
 {
-	switch (c)
-	{
-		case 'c': return print_char(args);
-		case 's': return print_string(args);
-		case 'd':
-		case 'i': return print_int(args);
-		case '%': write(1, "%", 1); return 1;
-		default:
+	specifier_t specifiers[] = {
+		{'c', print_char},
+		{'s', print_string},
+		{'d', print_int},
+		{'i', print_int},
+		{'%', print_percent},
+		{'\0', NULL}
+		};
+
+		int i = 0;
+		while (specifiers[i].spec != '\0')
+		{
+			if (specifiers[i].spec == c)
+				{
+					return specifiers[i].f(args);
+				}
+				i++;
+		}
+
 			write(1, "%", 1);
 			write(1, &c, 1);
 			return 2;
 	}
-}
