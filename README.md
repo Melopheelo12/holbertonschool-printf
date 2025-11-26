@@ -100,5 +100,8 @@ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 *.c -o printf
 3. Verify the output for each specifier and compare it with the standard `printf`.
 
 ---
-
 **Note:** This project is designed to be **modular**, with each type of specifier handled in its own file, making it easy to maintain and extend `_printf` to additional formats in the future.
+---
+## Flowchart of Ryan and Ilan printF
+
+<img width="2048" height="714" alt="image" src="https://github.com/user-attachments/assets/7a5ae71f-6983-4082-be2d-4d172de689c6" />
