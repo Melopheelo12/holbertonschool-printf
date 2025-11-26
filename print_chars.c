@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * print_char - imprime un caractère
- * @args: liste d’arguments
+ * print_char - prints a character
+ * @args: list of arguments
  *
  * Return: 1
  */
+
 int print_char(va_list args)
 {
 	char c = va_arg(args, int);
@@ -13,11 +14,12 @@ int print_char(va_list args)
 }
 
 /**
- * print_string - imprime une chaîne de caractères
- * @args: liste d’arguments
+ * print_string - prints a string
+ * @args: list of arguments
  *
- * Return: nombre de caractères imprimés
+ * Return: number of characters printed
  */
+
 int print_string(va_list args)
 {
 	char *str = va_arg(args, char *);
