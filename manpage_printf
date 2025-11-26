@@ -1,0 +1,89 @@
+.TH _PRINTF 3 "March 2025" "Holberton School" "Library Functions Manual"
+
+.SH NAME
+_printf \- simplified reproduction of the C standard printf function
+
+.SH SYNOPSIS
+.nf
+#include "main.h"
+
+int _printf(const char *format, ...);
+.fi
+
+.SH DESCRIPTION
+The
+.B _printf
+function produces output according to a
+.I format
+string. It writes the output to the standard output (file descriptor 1).
+
+This simplified version supports a limited set of format specifiers.
+Additional arguments are processed using variadic functions
+(\fBva_start\fP, \fBva_arg\fP, \fBva_end\fP).
+
+.SH SUPPORTED FORMAT SPECIFIERS
+The following conversions are supported:
+
+.TP
+.B %c
+Print a single character.  
+Argument type: \fBint\fP.
+
+.TP
+.B %s
+Print a null-terminated string.  
+Argument type: \fBchar *\fP.  
+If the argument is NULL, the string "(null)" is printed.
+
+.TP
+.B %d
+Print a signed decimal integer.  
+Argument type: \fBint\fP.
+
+.TP
+.B %i
+Same as %d.
+
+.TP
+.B %%
+Print a literal percent sign.
+
+.SH RETURN VALUE
+On success,
+.B _printf
+returns the total number of characters written.
+
+On error (for example, if the format string is NULL or ends with a single
+percent sign), the function returns \-1.
+
+.SH EXAMPLES
+.nf
+_printf("Hello %s!\\n", "world");
+  -> prints "Hello world!"
+
+_printf("Value: %d", 42);
+  -> prints "Value: 42"
+
+_printf("Percent: %%");
+  -> prints "%"
+.fi
+
+.SH NOTES
+This implementation does not handle:
+.IP \[bu] 4
+Flags (e.g., +, \-, 0)
+.IP \[bu] 4
+Field width
+.IP \[bu] 4
+Precision
+.IP \[bu] 4
+Length modifiers (l, h, etc.)
+.IP \[bu] 4
+Floating point formats
+
+.SH SEE ALSO
+printf(3), putchar(3), write(2)
+
+.SH AUTHOR
+Holberton School Project – Custom printf
+
