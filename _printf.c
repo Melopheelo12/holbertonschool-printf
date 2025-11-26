@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * _printf - reproduction simplifiée de printf
- * @format: chaîne de format
+ * _printf - simplified version of the printf function
+ * @format: string containing the format to print
  *
- * Return: nombre de caractères imprimés
+ * Return: the number of characters printed
  */
+
 int _printf(const char *format, ...)
 {
 	va_list args;
