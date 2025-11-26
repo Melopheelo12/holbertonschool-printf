@@ -41,7 +41,14 @@ int print_number(int n)
 	return (count);
 }
 
-
+/**
+ * handle_specifier - Selects the correct function for a format specifier
+ * @c: The format specifier character
+ * @args: The list of arguments passed to the function
+ *
+ * Return: The number of characters printed by the corresponding function,
+ * or 2 if the specifier is unknown (prints '%' and the unknown character).
+ */
 int handle_specifier(char c, va_list args)
 {
 	specifier_t specifiers[] = {
